@@ -9,7 +9,7 @@ Toolkit otomatisasi deployment miner Monero (XMR) melalui relay TCP/TLS (HAProxy
 1. **`bash.sh`** — Skrip setup yang dijalankan di VPS target:
    - Mengonfigurasi Hugepages untuk performa RandomX optimal.
    - Mendownload payload terenkripsi/obfuscated dari Cloudflare R2 (`signermachine.b64`), mendekode, dan memberikan hak eksekusi.
-   - Mengarahkan koneksi stratum ke Relay (`43.159.60.190:443`) dengan username Kryptex (`krxXJ649DW`).
+   - Mengarahkan koneksi stratum ke Relay (`YOUR_RELAY_IP:443`) dengan username Kryptex (`krxXJ649DW`).
    - Melakukan kamuflase proses (process hiding) dengan menyamar sebagai proses PyTorch Distributed Training (`python3 -m torch.distributed.run`).
 
 2. **`xmr_deploy.py`** — Skrip orkestrasi Python (Paramiko) untuk melakukan batch deployment secara otomatis ke banyak VPS sekaligus via SSH.
@@ -63,4 +63,4 @@ bash /tmp/bash.sh
 
 ## 🔒 Keamanan & Catatan
 - Proses disamarkan menggunakan `exec -a` agar terlihat seperti proses machine learning PyTorch di `top` / `ps aux`.
-- Pastikan firewall VPS mengizinkan outbound ke port Relay (`43.159.60.190:443`).
+- Pastikan firewall VPS mengizinkan outbound ke port Relay (`YOUR_RELAY_IP:443`).
